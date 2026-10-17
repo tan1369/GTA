@@ -1,0 +1,118 @@
+# Python bytecode and extension modules
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+__pypackages__/
+
+# Python packaging and build output
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Test, coverage, lint, and type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Jupyter Notebook checkpoints (keep notebooks themselves)
+.ipynb_checkpoints/
+
+# Local environment settings (keep example files)
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Editor and IDE state
+.idea/
+.vscode/
+.vs/
+*.suo
+*.user
+*.nvuser
+*.sln.docstates
+*.swp
+*.swo
+*~
+
+# C/C++ and .NET intermediate output
+# Do not blanket-ignore DLL/LIB/ASI files: DeepGTAV bundles dependencies.
+obj/
+ipch/
+*.obj
+*.o
+*.pdb
+*.idb
+*.iobj
+*.ipdb
+*.ilk
+*.exp
+*.pch
+*.ipch
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+cmake-build-*/
+
+# Machine-learning weights and experiment output
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+checkpoints/
+pretrained/
+work_dir/
+runs/
+wandb/
+lightning_logs/
+events.out.tfevents.*
+
+# Local datasets and generated tiles (paths relative to repository root)
+/data/
+/datasets/
+/GTA-UAV-main/data/
+/GTA-UAV-main/Game4Loc/data/
+/GTA-UAV-main/scripts/satellite/tiles/
+
+# Logs and temporary files
+*.log
+logs/
+nohup.out
+*.tmp
+*.temp
+*.bak
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
