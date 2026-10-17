@@ -1,0 +1,24 @@
+numpy>=1.23,<2.0
+opencv-python-headless>=4.8.0
+Pillow>=10.0.0
+PyYAML>=6.0
+tqdm>=4.65.0
+scipy>=1.10.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scikit-learn>=1.3.0
+scikit-image>=0.21.0
+einops>=0.7.0
+kornia>=0.7.0
+loguru>=0.7.0
+omegaconf>=2.3.0
+packaging>=23.0
+pycolmap>=3.10.0
+pyproj>=3.5.0
+timm>=0.9.0
+
+# Optional CUDA acceleration packages.
+# Install only when your CUDA, PyTorch and compiler versions are compatible.
+
+# flash-attn
+# xformers
