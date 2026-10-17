@@ -1,0 +1,40 @@
+{
+  "dataset_root": "/mnt/d/xuqi/Benchmark/Data/AnyVisLoc",
+  "scenes": null,
+  "reference_mode": "aerial",
+  "pose_priori": "yp",
+  "retrieval_ks": [
+    1,
+    3,
+    5
+  ],
+  "retrieval_k": 5,
+  "num_attempted": 20077,
+  "num_success": 20077,
+  "num_failed": 0,
+  "mean_retrieval_time_s": 0.004141206594358011,
+  "metric_valid_rows@1": 20077,
+  "pdm_at_1": 0.8756103259198081,
+  "recall_at_1": 0.6187677441848882,
+  "PDM@1": 0.8756103259198081,
+  "Recall@1": 0.6187677441848882,
+  "metric_valid_rows@3": 20077,
+  "pdm_at_3": 0.7729214778109981,
+  "recall_at_3": 0.8195945609403795,
+  "PDM@3": 0.7729214778109981,
+  "Recall@3": 0.8195945609403795,
+  "metric_valid_rows@5": 20077,
+  "pdm_at_5": 0.692552962366448,
+  "recall_at_5": 0.8730388006176222,
+  "PDM@5": 0.692552962366448,
+  "Recall@5": 0.8730388006176222,
+  "metric_valid_rows": 20077,
+  "pdm_at_k": 0.692552962366448,
+  "recall_at_k": 0.8730388006176222,
+  "retrieval_methods": [
+    "CAMP"
+  ],
+  "sample_ratio": 1.0,
+  "sample_seed": 42,
+  "num_selected_samples": 20077
+}
