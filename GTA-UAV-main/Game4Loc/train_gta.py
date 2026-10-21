@@ -97,6 +97,8 @@ class Configuration:
     
     # Savepath for model checkpoints
     model_path: str = "./work_dir/gta"
+    run_name: str = None
+    log_filename: str = "log.txt"
 
     query_mode: str = "D2S"               # Retrieval in Drone to Satellite
 
@@ -138,17 +140,19 @@ def train_script(config):
         f = open(config.log_path, 'w')
         sys.stdout = f
 
-    save_time = "{}".format(time.strftime("%m%d%H%M%S"))
+    save_time = config.run_name or time.strftime("%m%d%H%M%S")
     model_path = "{}/{}/{}".format(config.model_path,
                                        config.model,
                                        save_time)
 
-    if not os.path.exists(model_path):
+    if config.run_name:
+        os.makedirs(model_path, exist_ok=False)
+    elif not os.path.exists(model_path):
         os.makedirs(model_path)
     shutil.copyfile(os.path.basename(__file__), "{}/train.py".format(model_path))
 
     # Redirect print to both console and log file
-    sys.stdout = Logger(os.path.join(model_path, 'log.txt'))
+    sys.stdout = Logger(os.path.join(model_path, config.log_filename))
 
     setup_system(seed=config.seed,
                  cudnn_benchmark=config.cudnn_benchmark,
@@ -157,6 +161,10 @@ def train_script(config):
     print("training save in path: {}".format(model_path))
 
     print("training start from", config.checkpoint_start)
+    print("Train mode:", config.train_mode, "Seed:", config.seed,
+          "Batch size:", config.batch_size)
+    print("Training metadata:", config.train_pairs_meta_file)
+    print("Test metadata:", config.test_pairs_meta_file)
 
     #-----------------------------------------------------------------------------#
     # Model                                                                       #
@@ -453,6 +461,10 @@ def parse_args():
 
     parser.add_argument('--log_path', type=str, default=None, help='Log file path')
 
+    parser.add_argument('--run_name', type=str, default=None, help='Run directory name (default: timestamp)')
+
+    parser.add_argument('--log_filename', type=str, default='log.txt', help='Log filename inside the run directory')
+
     parser.add_argument('--data_root', type=str, default='./data/GTA-UAV-data', help='Data root')
 
     parser.add_argument('--train_pairs_meta_file', type=str, default='cross-area-drone2sate-train.json', help='Training metafile path')
@@ -518,6 +530,8 @@ if __name__ == '__main__':
     config.test_pairs_meta_file = args.test_pairs_meta_file
     config.log_to_file = args.log_to_file
     config.log_path = args.log_path
+    config.run_name = args.run_name
+    config.log_filename = args.log_filename
     config.epochs = args.epochs
     config.batch_size = args.batch_size
     config.train_in_group = args.train_in_group

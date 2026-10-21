@@ -118,3 +118,6 @@ Desktop.ini
 $RECYCLE.BIN/
 
 /Anyvisloc/Result/
+
+# Generated visualization previews
+/Anyvisloc/visualization_preview/
